@@ -22,13 +22,9 @@ export const loginUser = TryCatch(async (req, res) => {
   const otp = crypto.randomInt(100000, 999999).toString();
   
   const otpKey = `otp:${email}`;
-  await redisClient.set(otpKey, otp, {
-    EX: 300,
-  });
+  await redisClient.set(otpKey, otp, {EX: 300,});
 
-  await redisClient.set(rateLimitKey, "true", {
-    EX: 60,
-  });
+  await redisClient.set(rateLimitKey, "true", {EX: 60,});
 
   const message = {
     to: email,

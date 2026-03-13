@@ -9,7 +9,7 @@ const connectDb = async () => {
 
   try {
     await mongoose.connect(url, {
-      dbName: "Chatappmicroserviceapp",
+      dbName: "ChatUp",
     });
     console.log("Connected to mongodb");
   } catch (error) {
